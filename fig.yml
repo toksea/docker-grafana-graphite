@@ -1,0 +1,11 @@
+grafana:
+  build: .
+  # image: kamon/grafana_graphite
+  volumes:
+    - db/elastic:/var/lib/elasticsearch
+    - db/whisper:/var/lib/graphite/storage/whisper
+    # - src:/src
+  ports:
+    - "80:80"
+    - "8125:8125/udp"
+    - "8126:8126"
